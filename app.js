@@ -1,40 +1,22 @@
-const role = 'manager';
+const bmwX3Price = 100000;
+const fordFocusPrice = 20000;
+const budget = 20000;
 
-switch (role) {
-    case 'manager': // role === 'manager'
-        console.log('Менеджер');
-        break;
-    case 'admin':
-        console.log('Админ');
-        break;
-    case 'ceo':
-        console.log('СЕО');
-        break;
-    default:
-        console.log('Мы тебя не знаем!');
+let message;
+if (budget > bmwX3Price) {
+    message = 'BMW';
+} else {
+    message = 'Велосипед';
 }
+// Классический метод выводы через if else
+console.log(`Я хочу купить ${message}`) 
 
-switch (role) {
-    case 'manager': // role === 'manager'
-    case 'admin':
-        console.log('Не руководитель');
-        break;
-    case 'ceo':
-        console.log('Руководитель');
-        break;
-    default:
-        console.log('Мы тебя не знаем!');
-}
+// Упрощённый вывод через тернарный оператор
+console.log(`Я хочу купить ${budget > bmwX3Price ? 'BMW' : 'Велосипед'}`); 
 
-const num = 0;
+// Тернарный оператор в тернарном операторе
+let message2 = budget > bmwX3Price 
+    ? 'BMW' 
+    : budget > bmwX3Price ? 'Ford' : 'Велосипед'
 
-switch (true) {
-    case num > 0:
-       console.log('Положительный');
-       break;
-    case num < 0:
-       console.log('Отрицательный');
-       break;
-    default:
-        console.log('Ноль');
-}
+console.log(`Я хочу купить ${message2}`);
