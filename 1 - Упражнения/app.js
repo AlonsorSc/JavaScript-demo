@@ -1,34 +1,20 @@
 /*
-Методом prompt получите ответ пользователя 
-на вопрос "Сколько будет 7 + или - 15?". 
-Если ответ верен, выведите в консоли "Успех", 
-если нет - "Вы робот!", а если он введёт "Я не робот", 
-то тоже "Успех".
+	Пользователь хочет приобрести игру в магазине
+	Он может это сделать только если:
+	- Eго баланс больше 1000 (balance) 
+	или число бонусов больше 100 (bonusBalance)
+	- Он не забанен (isBanned)
+	- Игра не кулена (isExist)
+	- Игра в продаже (isSelling)
+	Напишите условие для покупки и выведите в консоль
+	результат
 */
-const res = prompt('Сколько будет 7 + или - 15?')
 
-// первый сценарий
-switch (true) {
-    case res === 'Я не робот':
-    case Number(res) === 22:
-    case Number(res) === - 8:
-        console.log('Успех');
-        break;
-    default:
-        console.log('Вы робот!');
-    }
+const balance = 900;
+const bonusBalance = 90;
+let isBanned = false;
+let isExist = false;
+let isSelling = true;
+const canBuy = (balance >= 1000 || bonusBalance >= 100) && !isBanned && !isExist && isSelling;
 
-// второй сценарий
-    if (res === 'Я не робот') {
-        console.log('Успех');
-    } else {
-        const resNum = Number(res);
-        switch (resNum) {
-            case 22:
-            case -8:
-                console.log('Успех');
-                break;
-            default:
-                console.log('Вы робот!');    
-        }
-    }
+console.log(`Могу купить игру: ${canBuy ? 'Да' : 'Нет'}`);
