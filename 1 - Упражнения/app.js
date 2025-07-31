@@ -1,24 +1,34 @@
-/* 
-Упражнение 5.2. Размещение депозита:
-Вася положил 12 000$ на вклад 7% годовых с капитализацией 1 раз в месяц. 
-Вывести в консоль, сможет ли он купить дом за 13 500$ через 2 года 
-после снятия вклада и остаток после покупки.
-Итог = Сумма * (1 + Ставка в месяц не в %) ^ срок в месяцах
+/*
+Методом prompt получите ответ пользователя 
+на вопрос "Сколько будет 7 + или - 15?". 
+Если ответ верен, выведите в консоли "Успех", 
+если нет - "Вы робот!", а если он введёт "Я не робот", 
+то тоже "Успех".
 */
+const res = prompt('Сколько будет 7 + или - 15?')
 
-const presentValue = 11000;
-const annualInterestRate = 0.07;
-const numberOfTimes = 12;
-const numberOfTimesPeriods = 2;
-const homePrice = 13500;
+// первый сценарий
+switch (true) {
+    case res === 'Я не робот':
+    case Number(res) === 22:
+    case Number(res) === - 8:
+        console.log('Успех');
+        break;
+    default:
+        console.log('Вы робот!');
+    }
 
-const futureValue = presentValue * (1 + annualInterestRate / numberOfTimes) ** (numberOfTimes * numberOfTimesPeriods);
-
-if (futureValue > homePrice) {
-    console.log(`Вася сможет купить дом т.к. накопил ${futureValue} и у него останется ${futureValue - homePrice}$`);
-} else {
-    console.log(`Вася не сможет купить дом т.к. он накопил ${futureValue} и ему не хватает ${homePrice - futureValue}$ для покупки дома`);
-}
-
-
-
+// второй сценарий
+    if (res === 'Я не робот') {
+        console.log('Успех');
+    } else {
+        const resNum = Number(res);
+        switch (resNum) {
+            case 22:
+            case -8:
+                console.log('Успех');
+                break;
+            default:
+                console.log('Вы робот!');    
+        }
+    }
