@@ -1,24 +1,33 @@
-// Простая функция через имя powerOfTwo
+// Обычная функция
 function powerOfTwo(num) {
     return num * num;
 }
 console.log(powerOfTwo(5));
 
-/* Анонимная функция, у неё нет названия, как в обычном случае
-Мы взяли функцию и положили её в пенеменную const poft */
-const poft = function (num) {
-    return num * num;
-}
+// Стрелочная функция
+const poft = (num) => num * num;
 console.log(poft(6));
 
-/* Механика объявления функции и без объявления через const.
-В 1 случае результат будет, т.к. функция объявлена после - это называется всплытие*/
-console.log(powerOfTwo(5));
+/* Стрелочная функция можно аргумент без скобки 
+То, что до стрелки - аргументы, после стрелки то, 
+что функция будет возвращать. */
+const poft2 = num => num * num;
+console.log(poft2(7));
+
+/* Сайдэфект логирования в обычной и стрелочной функции.
+В обычной функции:*/
 function powerOfTwo(num) {
+    console.log(num);
     return num * num;
 }
-// В 2 случае результата не будет, т.к. функция на момент вызова console.log не объявлена
-console.log(poft(6));
-const poft = function (num) {
+console.log(powerOfTwo(5));
+// В стрелочной функции:
+const poft3 = num => {
+    console.log(num);
     return num * num;
-}
+};
+console.log(poft3(8));
+
+// Несколько аргументов стрелочной функции в скобках ()
+const poft4 = (num, i) => num * num;
+console.log(poft4(7));
