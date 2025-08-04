@@ -1,32 +1,24 @@
-// Задали функцию logName, которая выводит: Моё имя Никита
-function logName() {
-    console.log(`Моё имя Никита`);
+// Простая функция через имя powerOfTwo
+function powerOfTwo(num) {
+    return num * num;
 }
-// Вызываем функцию в () нет аргумента, при вызове он не ставится
-logName();
+console.log(powerOfTwo(5));
 
-// Функция с аргументами name, surename через запятую если аргументов несколько
-function logName2(name, surename) {
-    console.log(`Моё имя Никита ${name} ${surename}`);
+/* Анонимная функция, у неё нет названия, как в обычном случае
+Мы взяли функцию и положили её в пенеменную const poft */
+const poft = function (num) {
+    return num * num;
 }
-logName2('Никита', 'Соловьев');
+console.log(poft(6));
 
-// Функция с выводом депозита (как пример)
-function countDepositSum(depositInUSD, month, rate) {
-    const sum = depositInUSD * (1 + rate / 12) ** month;
-    return sum;
+/* Механика объявления функции и без объявления через const.
+В 1 случае результат будет, т.к. функция объявлена после - это называется всплытие*/
+console.log(powerOfTwo(5));
+function powerOfTwo(num) {
+    return num * num;
 }
-// 1 вариант подсчёта
-const example1 = countDepositSum(1000, 24, 0.12);
-console.log(example1);
-// 2 вариант подсчёта
-const example2 = countDepositSum(1000, 48, 0.10);
-console.log(example2);
-// 3 вариант напрямую через console.log
-console.log(countDepositSum(1000, 48, 0.10));
-
-// Если мы константу не используем нигде, кроме как для return, можно укоротить запись.
-// Т.е. нет промежуточного хранилища для переменных, где лежала бы sum
-function countDepositSum(depositInUSD, month, rate) {
-    return depositInUSD * (1 + rate / 12) ** month;
+// В 2 случае результата не будет, т.к. функция на момент вызова console.log не объявлена
+console.log(poft(6));
+const poft = function (num) {
+    return num * num;
 }
