@@ -1,30 +1,28 @@
-// может быть несколько return
-function canAccessWebsite(age) {
-    if (age < 18) {
-        return false;
-    } else {
-        return true;
-    }
+const KG_IN_USD = 7;
+const KM_IN_USD = 5;
+
+function calculateW(present) {
+    return present * KG_IN_USD;
 }
-console.log(canAccessWebsite(16));
 
-/* Укороченный вариант без else. Если мы попадаем на первый return, то выполнение функции завершается 
-если возраст меньше 18, то функция выдаст false и дальше не пойдет. */
-function canAccessWebsite(age) {
-    if (age < 18) {
-        return false;
-    }
-    /* этот console.log и return true; не выведится, т.к. первый return сработал и мы вернулись из функции. 
-    Функция прекращает своё функционирование. */
-    console.log('qwe') 
-    return true;
+function calculateKm(distance) {
+    return distance * KM_IN_USD;
 }
-console.log(canAccessWebsite(16));   
 
-// Через стрелочную функцию
-const canAccessWebsite2 = age => age < 18  
+// Простой вариант без использования функции в функции
+function getExchangePrice(present1, present2, distance) {
+    const price1 = present1 * KG_IN_USD;
+    const price2 = present2 * KG_IN_USD;
+    const distancePrice = distance * KM_IN_USD;
+    return price1 + price2 + distancePrice;
+}
+console.log(getExchangePrice(1, 2, 10));
 
-// Через стрелочную с тернарным оператором
-
-const canAccessWebsite3 = age => age < 18 ? 'Нет' : 'Да'; 
-console.log(canAccessWebsite3(18));
+// Вариант сложнее с использованием функции в функции
+function getExchangePrice(present1, present2, distance) {
+    const price1 = calculateW(present1);
+    const price2 = calculateW(present2);
+    const distancePrice = calculateKm(distance);
+    return price1 + price2 + distancePrice;
+}
+console.log(getExchangePrice(1, 2, 10));
