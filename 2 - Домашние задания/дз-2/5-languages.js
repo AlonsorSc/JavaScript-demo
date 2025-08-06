@@ -1,6 +1,6 @@
 const greetings = String(prompt('Please select your language: en, ru, de'))
 
-switch (greetings) {
+switch (greetings.toLowerCase()) {
         case 'en':
         console.log('Hello!');
         break;
